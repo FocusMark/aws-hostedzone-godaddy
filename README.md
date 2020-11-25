@@ -54,6 +54,8 @@ The core infrastructure in this repository consists of the following:
 
 - Hosted Zone for Domain and Nameservers, including a Lambda for assigning AWS Route 53 Nameservers to GoDaddy Domains.
 
+![Architecture](/docs/aws-hostedzone-godaddy-resources.jpeg)
+
 ## Deployment
 
 In order to deploy the infrastructure you just need to execute the bash script included in the root directory from a terminal:
@@ -63,3 +65,9 @@ $ sh deploy.sh
 ```
 
 This will kick off the process and deploy the Secrets into Parameter Store as a Secure String for GoDaddy API Keys. Once those are deployed the process wil deploy a Hosted Zone and a Lambda. The Lambda will assign GoDaddy domain nameservers to the Route 53 Hosted Zone deployed in this stack.
+
+![Deployment](/docs/aws-hostedzone-godaddy-resources.jpeg)
+
+# Usage
+
+Once the deployment is completed you will now have an AWS Route 53 Hosted Zone created. The Hosted Zone has it's Hosted Zone ID exported in CloudFormation for use in other Stacks. You can get this value by importing the `${ProductName}-route53-dotAppZone` value.
