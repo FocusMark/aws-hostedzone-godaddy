@@ -10,7 +10,7 @@ product_name=$focusmark_productname
 echo Deploying into the $deployed_environment environment.
 
 # Execute the SAM CLI Deploy command to upload the Lambdas to S3 and deploy them
-secrets_stack_name=$product_name-global-cf-godaddy_secrets
+secrets_stack_name=$product_name-global-cf-godaddy-secrets
 secrets_template_file='secrets-template.yaml'
 
 cfn-lint $secrets_template_file
@@ -28,7 +28,7 @@ aws cloudformation deploy \
         TargetApiSecret=$target_api_secret
 
 # Execute the SAM CLI Deploy command to upload the Lambdas to S3 and deploy them
-sam_stack_name=$product_name-global-sam-hostedzone_godaddy
+sam_stack_name=$product_name-global-sam-hostedzone-godaddy
 sam_template_file='template.sam'
 sam_s3_bucket_name=$product_name-global-s3-deployments
 
