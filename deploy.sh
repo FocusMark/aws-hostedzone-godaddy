@@ -9,7 +9,7 @@ product_name=$focusmark_productname
 
 echo Deploying into the $deployed_environment environment.
 
-# Execute the SAM CLI Deploy command to upload the Lambdas to S3 and deploy them
+# Execute the AWS CloudFormation for deploying the GoDaddy Secrets stack.
 secrets_stack_name=$product_name-global-cf-godaddy-secrets
 secrets_template_file='secrets-template.yaml'
 
